@@ -1,0 +1,124 @@
+#game {
+  background: var(--content-background-color);
+  border-radius: var(--default-border-radius);
+  padding: 3vmin;
+  box-shadow: var(--box-shadow);
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2vmin;
+  font-size: var(--main-title-font-size);
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 20vmin);
+  grid-template-rows: repeat(3, 20vmin);
+  grid-gap: 1vmin;
+  margin: 2vmin 0;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vmin;
+  font-weight: bold;
+  color: var(--accent-color);
+  background: var(--primary-gradient);
+  border: var(--default-primary-border);
+  border-radius: var(--default-border-radius);
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.cell:active,
+.cell:hover,
+.cell.winner {
+  cursor: pointer;
+  color: var(--content-background-color);
+  background: var(--primary-highlight-gradient);
+}
+
+.cell-content {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  transition: width var(--selection-animation-duration),
+    height var(--selection-animation-duration);
+}
+
+.cell-content.populated {
+  width: 12vmin;
+  height: 12vmin;
+}
+
+#modal-overlay {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--modal-overlay-color);
+}
+
+#modal-overlay.modal-open {
+  display: grid;
+}
+
+#game-result-modal {
+  display: grid;
+  grid-row-gap: 76vmin;
+
+  --modal-items-border-radius: 1vmin;
+}
+
+#result-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+#winner-container {
+  margin-bottom: 4vmin;
+  width: 30vmin;
+  height: 8vmin;
+  font-size: var(--main-title-font-size);
+  font-weight: bold;
+  color: var(--primary-color);
+  background: var(--accent-color);
+  border: var(--default-accent-border);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--modal-items-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#new-game-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2.5vmin;
+}
+
+#new-game-container > button {
+  font-size: 3vmin;
+  padding: 1.5vmin;
+  color: var(--accent-color);
+  background: var(--primary-gradient);
+  border: var(--default-primary-border);
+  border-radius: var(--modal-items-border-radius);
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+#new-game-container > button:hover,
+#new-game-container > button:active {
+  color: var(--content-background-color);
+  cursor: pointer;
+  background: var(--primary-highlight-gradient);
+}
